@@ -26,16 +26,16 @@ To simplfy the management of program, I have generated a map that contains metho
 1. **Mean Filter**
 
    _Text: Write your analysis and observations here._
-
+  
    ![Mean Filter Result](plot_outputs/plot_image1_mean.png)
 
 ---
 
 2. **Median Filter**
 
-   _Text: Write your analysis and observations here._
+   _Text: The worst filter appears to be Median filter as it doesn't give any useful output
 
-   ![Median Filter Result](plot_outputs/plot_image1_median.png)
+   ![Median Filter Result](task1_plot_outputs/plot_image6_median.jpeg)
 
 ---
 
@@ -116,7 +116,8 @@ To simplfy the management of program, I have generated a map that contains metho
 In this part, I will only put the best results based on my qualitative analysis, you can run `a2.py` and try for different functions on the speckle images.
 
 ### Part 3
-Run `a3.py`, as it provides an interactive tool for playing the images as a loop forward and backwards, u can also use the slider for seeing the different images based on slider value.
+Run `downloader.py` script to download dicom file from the link you have provided, it should download to the same directory with the script, do not change it.
+Run `a3.py`, as it provides an interactive tool for playing the images as a loop forward and backwards, u can also use the slider for seeing the different images based on slider value. You can specify the values you want to appear on the list, and it will print the ones which are not empty. By default, it will print all the data that are not empty.
 
 You can save images after execution, to do so, set `save` variable to. It will save the result image in `outputs\output{assignment_number}\` with given file name using `save_image` function. Alternatively, you can save the output of the plots by setting `save_plot` to True.
 
@@ -129,8 +130,9 @@ cd a3-digital-image-pre-processing-aghayevagha
 
 Install the necessary libraries
 ~~~
-pip install opencv-python numpy matplotlib scikit-image scikit-learn
+pip install opencv-python numpy matplotlib scikit-image scikit-learn pydicom scipy
 ~~~
+  - run `downloader.py` to install the dicom file.
   - run `a1.py`, `a2.py`, `a3.py` for corresponding parts of the assignments, example:
 ~~~
 python a1.py
