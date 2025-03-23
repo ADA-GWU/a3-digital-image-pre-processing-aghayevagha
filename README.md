@@ -107,34 +107,33 @@ In this part, I will only put the best results based on my qualitative analysis,
 
 <p>
   <img src="task2_plot_outputs/speckle1_crimmins.jpeg" width="700" />
-  <br><sub>Speckle 1 - Crimmins Filter with 6 iterations</sub>
+  <br><span style="font-size: 16px;">Speckle 1 - Crimmins Filter with 6 iterations</span>
 </p>
 
 <p>
   <img src="task2_plot_outputs/speckle2_bilateral.jpeg" width="700" />
-  <br><sub>Speckle 2 - Bilateral Filter (diameter 6, color and space 75)</sub>
+  <br><span style="font-size: 16px;">Speckle 2 - Bilateral Filter (diameter 6, color and space 75)</span>
 </p>
 
 <p>
   <img src="task2_plot_outputs/speckle3_median.jpeg" width="700" />
-  <br><sub>Speckle 3 - Median Filter</sub>
+  <br><span style="font-size: 16px;">Speckle 3 - Median Filter</span>
 </p>
 
 <p>
   <img src="task2_plot_outputs/speckle4_crimmins.jpeg" width="700" />
-  <br><sub>Speckle 4 - Crimmins Filter with 10 iterations</sub>
+  <br><span style="font-size: 16px;">Speckle 4 - Crimmins Filter with 10 iterations</span>
 </p>
 
 <p>
   <img src="task2_plot_outputs/speckle5_median.jpeg" width="700" />
-  <br><sub>Speckle 5 - Median Filter</sub>
+  <br><span style="font-size: 16px;">Speckle 5 - Median Filter</span>
 </p>
 
 <p>
   <img src="task2_plot_outputs/speckle6_bilateral.jpeg" width="700" />
-  <br><sub>Speckle 6 - Bilateral Filter (diameter 9, color and space 75)</sub>
+  <br><span style="font-size: 16px;">Speckle 6 - Bilateral Filter (diameter 9, color and space 75)</span>
 </p>
-
 
 ### Part 3
 Run `downloader.py` script to download dicom file from the link you have provided, it should download to the same directory with the script, do not change it.
