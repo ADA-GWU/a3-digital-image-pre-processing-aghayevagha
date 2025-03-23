@@ -15,105 +15,126 @@ This repository contains the source code and images for Assignment 3.
 - [Part 2](#part-2)
 - [Part 3](#part-3)
 - [How to run](#how-to-run)
-
-### Part 1
+---
+## Part 1
 Based on a seed, I have chosen 3 random images, and on different kernels/functions, the program randomly picks from those 3 elements.
 Aside from learned techniques in the class, I present my own approach for this task, which significantly outperforms other approaches due to the nature of these images.
 To simplfy the management of program, I have generated a map that contains method names, which are used for both calling the corresponding functions and generating names for outputs. You can save the result of methods seperately.
 
-### 📚 Filtering Method Mapping and Analysis
+### Filtering Method Mapping and Analysis
+Generally speaking, I could divide the results of algorithms into two categories:
+  - Kernels/methods with bad result : median filter, closing
+  - Kernels that made small difference by smoothing: mean, gaussian, bilateral, and others
+  - The best one : my own method
+---
+## Denoising Results — Task 1: Chemical Images
+The first image is the original one, second is the result of method and last one is their difference, helping us to see what method has removed from the image.
 
-1. **Mean Filter**
+### Filters that made small difference
+These methods and some other that I haven't put here almost had the same tendency. They didn't remove the noise, but made them more smoother, making them look less obvious.
 
-   _Text: Write your analysis and observations here._
-  
-   ![Mean Filter Result](plot_outputs/plot_image1_mean.png)
+###  Mean Filter  
+<p>
+  <img src="task1_plot_outputs/plot_image1_mean.jpeg" width="700">
+</p>
+
+###  Gaussian Filter  
+<p>
+  <img src="task1_plot_outputs/plot_image7_gaussian.jpeg" width="700">
+</p>
+
+###  Conservative Smoothing  
+<p>
+  <img src="task1_plot_outputs/plot_image7_conservative.jpeg" width="700">
+</p>
+
+###  Crimmins Speckle Removal  
+<p>
+  <img src="task1_plot_outputs/plot_image1_crimmins.jpeg" width="700">
+</p>
 
 ---
 
-2. **Median Filter**
+##  Worst Methods
 
-   _Text: The worst filter appears to be Median filter as it doesn't give any useful output
+###  Median Filter  
+_The worst filter appears to be Median filter as it doesn't give any useful output._
 
-   ![Median Filter Result](task1_plot_outputs/plot_image6_median.jpeg)
+<p>
+  <img src="task1_plot_outputs/plot_image6_median.jpeg" width="700">
+</p>
 
----
+###  Morphological Closing  
+_Better than Median filter, but it also removed the details of the chemical._
 
-3. **Gaussian Filter**
-
-   _Text: Write your analysis and observations here._
-
-   ![Gaussian Filter Result](plot_outputs/plot_image1_gaussian.png)
-
----
-
-4. **Conservative Smoothing**
-
-   _Text: Write your analysis and observations here._
-
-   ![Conservative Smoothing Result](plot_outputs/plot_image1_conservative.png)
+<p>
+  <img src="task1_plot_outputs/plot_image7_closing.jpeg" width="700">
+</p>
 
 ---
 
-5. **Crimmins Speckle Removal**
+##  Methods with Different Behavior
 
-   _Text: Write your analysis and observations here._
+###  Frequency Low-Pass Filter  
+_As Frequency methods work in a different manner, it had a totally different result from others, but did not really remove the noise — they are just too small to be visible._
 
-   ![Crimmins Filter Result](plot_outputs/plot_image1_crimmins.png)
-
----
-
-6. **Frequency Low-Pass Filter**
-
-   _Text: Write your analysis and observations here._
-
-   ![Frequency Filter Result](plot_outputs/plot_image1_frequency.png)
+<p>
+  <img src="task1_plot_outputs/plot_image1_frequency.jpeg" width="700">
+</p>
 
 ---
 
-7. **Laplacian Filter**
+## 🏆 Best Result
 
-   _Text: Write your analysis and observations here._
+### Aghax Kernel Method  
+_If you take a look at the image differences, you’ll only see small dots — meaning that this method only removed the noise while keeping structure._
 
-   ![Laplacian Filter Result](plot_outputs/plot_image1_laplacian.png)
+_This method works by counting black pixels inside a square; if below a threshold, it removes them as noise._
 
----
-
-8. **Unsharp Filter**
-
-   _Text: Write your analysis and observations here._
-
-   ![Unsharp Filter Result](plot_outputs/plot_image1_unsharp.png)
-
----
-
-9. **Morphological Opening**
-
-   _Text: Write your analysis and observations here._
-
-   ![Opening Result](plot_outputs/plot_image1_opening.png)
-
----
-
-10. **Morphological Closing**
-
-   _Text: Write your analysis and observations here._
-
-   ![Closing Result](plot_outputs/plot_image1_closing.png)
-
----
-
-11. **Aghax Kernel Method**
-
-   _Text: Write your analysis and observations here._
-
-   ![Aghax Filter Result](plot_outputs/plot_image1_aghax.png)
+<p>
+  <img src="task1_plot_outputs/plot_image1_aghax.jpeg" width="700">
+</p>
 
 ---
 
 
-### Part 2
-In this part, I will only put the best results based on my qualitative analysis, you can run `a2.py` and try for different functions on the speckle images.
+## Part 2
+In this part, I will only put the best results based on my qualitative analysis, you can run `a2.py` and try for different methods on the speckle images.
+<!-- You can change this width to 400, 500, etc. -->
+<!-- WIDTH = 700 -->
+
+<h3> Task 2: Denoising Results (Speckle Noise)</h3>
+
+<p>
+  <img src="task2_plot_outputs/speckle1_crimmins.jpeg" width="700" />
+  <br><sub>Speckle 1 - Crimmins Filter with 6 iterations</sub>
+</p>
+
+<p>
+  <img src="task2_plot_outputs/speckle2_bilateral.jpeg" width="700" />
+  <br><sub>Speckle 2 - Bilateral Filter (diameter 6, color and space 75)</sub>
+</p>
+
+<p>
+  <img src="task2_plot_outputs/speckle3_median.jpeg" width="700" />
+  <br><sub>Speckle 3 - Median Filter</sub>
+</p>
+
+<p>
+  <img src="task2_plot_outputs/speckle4_crimmins.jpeg" width="700" />
+  <br><sub>Speckle 4 - Crimmins Filter with 10 iterations</sub>
+</p>
+
+<p>
+  <img src="task2_plot_outputs/speckle5_median.jpeg" width="700" />
+  <br><sub>Speckle 5 - Median Filter</sub>
+</p>
+
+<p>
+  <img src="task2_plot_outputs/speckle6_bilateral.jpeg" width="700" />
+  <br><sub>Speckle 6 - Bilateral Filter (diameter 9, color and space 75)</sub>
+</p>
+
 
 ### Part 3
 Run `downloader.py` script to download dicom file from the link you have provided, it should download to the same directory with the script, do not change it.
