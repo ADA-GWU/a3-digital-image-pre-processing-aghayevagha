@@ -125,29 +125,6 @@ def median_filter(image, kernel_size=3):
 def gaussian_filter(image, kernel_size=5, sigma=0):
     return cv2.GaussianBlur(image, (kernel_size, kernel_size), sigma)
 
-def conservative_smoothing1(image, kernel_size=3):
-    def process_channel(channel):
-        pad = kernel_size // 2
-        padded = np.pad(channel, pad, mode='edge')
-        output = channel.copy()
-        for i in range(channel.shape[0]):
-            for j in range(channel.shape[1]):
-                local = padded[i:i+kernel_size, j:j+kernel_size]
-                min_val, max_val = np.min(local), np.max(local)
-                if channel[i, j] > max_val:
-                    output[i, j] = max_val
-                elif channel[i, j] < min_val:
-                    output[i, j] = min_val
-        return output
-
-    if len(image.shape) == 3:
-        return np.stack([process_channel(image[:,:,c]) for c in range(3)], axis=2)
-    else:
-        return process_channel(image)
-
-import numpy as np
-import cv2
-
 def conservative_smoothing(img, kernel_size=3):
     """
     Apply conservative smoothing on an RGB image.
