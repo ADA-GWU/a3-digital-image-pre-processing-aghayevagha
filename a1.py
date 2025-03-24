@@ -5,7 +5,7 @@ import matplotlib.patches as patches
 from utils import *
 
 # Select method key (change this to switch method)
-method_key = 1
+method_key = 4
 
 # Pick image using seed
 index = get_image_index(42)
@@ -13,7 +13,7 @@ image_path = f'noisy/noisy/chemical/inchi{index}.png'
 
 # Save options
 save_filtered_image = False
-save_plot_figure = True
+save_plot_figure = False
 
 # Resize option
 resize = False
@@ -51,11 +51,7 @@ if resize:
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 # Apply filter
-if method_key == 1:  # Special pipeline: mean → unsharp(mean)
-    mean = mean_filter(image)
-    result = unsharp_filter(mean)
-else:
-    result = method_function(image)
+result = method_function(image)
 
 # Compute difference
 difference = cv2.absdiff(image, result)

@@ -7,20 +7,14 @@ import random
 
 
 def read_image(path):
-
     image_bgr = cv2.imread(path)
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
     return image_rgb
 
-
-
 def resize_image(image, max_size=800):
-
-    
     if image is None:
         print("Error: Could not read the image!")
         return None
-
     height, width = image.shape[:2]
 
     # If either dimension exceeds max_size
@@ -131,7 +125,7 @@ def median_filter(image, kernel_size=3):
 def gaussian_filter(image, kernel_size=5, sigma=0):
     return cv2.GaussianBlur(image, (kernel_size, kernel_size), sigma)
 
-def conservative_smoothing(image, kernel_size=3):
+def conservative_smoothing1(image, kernel_size=3):
     def process_channel(channel):
         pad = kernel_size // 2
         padded = np.pad(channel, pad, mode='edge')
@@ -151,6 +145,40 @@ def conservative_smoothing(image, kernel_size=3):
     else:
         return process_channel(image)
 
+import numpy as np
+import cv2
+
+def conservative_smoothing(img, kernel_size=3):
+    """
+    Apply conservative smoothing on an RGB image.
+    - Converts image to grayscale internally.
+    - Applies conservative smoothing on grayscale channel.
+    - Replicates the smoothed grayscale image across all RGB channels.
+    Returns the smoothed RGB image.
+    """
+    # Convert to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+
+    pad = kernel_size // 2
+    padded = np.pad(gray, pad_width=pad, mode='edge')
+    output = gray.copy()
+    rows, cols = gray.shape
+
+    for i in range(rows):
+        for j in range(cols):
+            window = padded[i:i+kernel_size, j:j+kernel_size].flatten()
+            center = gray[i, j]
+            neighbors = np.delete(window, kernel_size * kernel_size // 2)
+            local_min = np.min(neighbors)
+            local_max = np.max(neighbors)
+            if center < local_min:
+                output[i, j] = local_min
+            elif center > local_max:
+                output[i, j] = local_max
+
+    # Replicate smoothed grayscale back to RGB
+    smoothed_rgb = cv2.merge([output]*3)
+    return smoothed_rgb
 
 def frequency_lowpass(image, cutoff=30):
     gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
