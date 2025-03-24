@@ -83,14 +83,15 @@ _As Frequency methods work in a different manner, it had a totally different res
 ## 🏆 Best Result
 
 ###  Conservative Smoothing  
-_If you take a look at the image differences, you’ll only see small dots — meaning that this method only removed the noise while keeping structure._
+_If you take a look at the image differences, you’ll only see small dots — meaning that this method only removed the noise while keeping structure. However, there are some dots that haven't been removed by conservative filter, there are two obvious noise on right bottom_
 <p>
   <img src="task1_plot_outputs/plot_image6_conservative.jpeg" width="700">
 </p>
 
 
 ### Aghax Kernel Method  
-_This method works by counting black pixels inside a square; if below a threshold, it removes them as noise._
+_This method works by counting black pixels inside a square; if below a threshold, it removes them as noise. My method even outperforms the Conservative smoothing method.
+Its complexity is O(w*h*k²), where w represents the image width and h is the height, and k is the side of square that is checked for each pixel_
 
 <p>
   <img src="task1_plot_outputs/plot_image1_aghax.jpeg" width="700">
