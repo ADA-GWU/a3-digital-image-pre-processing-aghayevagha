@@ -43,10 +43,6 @@ These methods and some other that I haven't put here almost had the same tendenc
   <img src="task1_plot_outputs/plot_image7_gaussian.jpeg" width="700">
 </p>
 
-###  Conservative Smoothing  
-<p>
-  <img src="task1_plot_outputs/plot_image7_conservative.jpeg" width="700">
-</p>
 
 ###  Crimmins Speckle Removal  
 <p>
@@ -86,14 +82,20 @@ _As Frequency methods work in a different manner, it had a totally different res
 
 ## 🏆 Best Result
 
-### Aghax Kernel Method  
+###  Conservative Smoothing  
 _If you take a look at the image differences, you’ll only see small dots — meaning that this method only removed the noise while keeping structure._
+<p>
+  <img src="task1_plot_outputs/plot_image6_conservative.jpeg" width="700">
+</p>
 
+
+### Aghax Kernel Method  
 _This method works by counting black pixels inside a square; if below a threshold, it removes them as noise._
 
 <p>
   <img src="task1_plot_outputs/plot_image1_aghax.jpeg" width="700">
 </p>
+
 
 ---
 
@@ -112,7 +114,7 @@ In this part, I will only put the best results based on my qualitative analysis,
 
 <p>
   <img src="task2_plot_outputs/speckle2_bilateral.jpeg" width="700" />
-  <br><span style="font-size: 16px;">Speckle 2 - Bilateral Filter (diameter 6, color and space 75)</span>
+  <br><span style="font-size: 16px;">Speckle 2 - Bilateral Filter (diameter 6, sigma color and space 75)</span>
 </p>
 
 <p>
@@ -132,7 +134,7 @@ In this part, I will only put the best results based on my qualitative analysis,
 
 <p>
   <img src="task2_plot_outputs/speckle6_bilateral.jpeg" width="700" />
-  <br><span style="font-size: 16px;">Speckle 6 - Bilateral Filter (diameter 9, color and space 75)</span>
+  <br><span style="font-size: 16px;">Speckle 6 - Bilateral Filter (diameter 9, sigma color and space 75)</span>
 </p>
 
 ### Part 3
